@@ -21,16 +21,16 @@
         <!-- Page Navigation -->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">Books Library</a>
+                <a class="navbar-brand" href="{{ url_for('main.home') }}">Books Library</a>
 
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="#">Home</a>
-                        <a class="nav-item nav-link" href="#">About</a>
+                        <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a>
+                        <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
                     </div>
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="#">Login</a>
-                        <a class="nav-item nav-link" href="#">Register</a>
+                        <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
+                        <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Register</a>
                     </div>
                 </div>
 
@@ -38,6 +38,10 @@
             </div>
         </nav>
     </header>
+
+    <main role="main" class="container">
+        {% block content %}{% endblock content %}
+    </main>
 
     <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS -->
