@@ -1,0 +1,8 @@
+# Idea files
+.idea/
+
+# Enviroment Variables
+.env
+
+# pipenv
+Pipfile.lock
