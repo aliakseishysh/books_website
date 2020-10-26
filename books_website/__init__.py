@@ -23,10 +23,12 @@ def create_app(config_class=Config):
     from books_website.users.routes import users
     from books_website.authors.routes import authors
     from books_website.books.routes import books
+    from books_website.admin_panel.routes import admin_panel
     app.register_blueprint(main)
     app.register_blueprint(users)
     app.register_blueprint(authors)
     app.register_blueprint(books)
+    app.register_blueprint(admin_panel)
 
     return app
 

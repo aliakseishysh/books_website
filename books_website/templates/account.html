@@ -1,3 +1,23 @@
 {% extends "layout.html" %}
 {% block content %}
+    {% if current_user.account_type == "admin"%}
+        <h1>{{ current_user.account_type }} - {{ current_user.username }}</h1>
+        <div class="form-group">
+            <label for="link_new_book">Добавить новую книгу в базу данных: </label>
+            <a id="link_new_book" class="btn btn-info form-control"
+                href="{{ url_for('admin_panel.new_book') }}" role="button">Перейти</a>
+        </div>
+        <div class="form-group">
+            <label for="link_del_book">Удалить книгу из базы данных: </label>
+            <a id="link_del_book" class="btn btn-info form-control"
+                href="{{ url_for('admin_panel.del_book') }}" role="button">Перейти</a>
+        </div>
+        <div class="form-group">
+            <label for="link_update_account">Изменить аккаунт: </label>
+            <a id="link_update_account" class="btn btn-info form-control"
+                href="{{ url_for('admin_panel.update_account') }}" role="button">Перейти</a>
+        </div>
+        {% else %}
+        <h1>{{ current_user.username }}</h1>
+    {% endif %}
 {% endblock content %}

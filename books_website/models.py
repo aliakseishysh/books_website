@@ -26,6 +26,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(100), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), unique=False, nullable=False)
+    account_type = db.Column(db.String(10), unique=False, nullable=False)
 
 
 
