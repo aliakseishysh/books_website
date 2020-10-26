@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,25 +22,29 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url_for('main.home') }}">Books Library</a>
-
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a>
-                        <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
+                        <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Домашняя</a>
+                        <a class="nav-item nav-link" href="{{ url_for('main.about') }}">О проекте</a>
                     </div>
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
-                        <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Register</a>
-                    </div>
-                </div>
 
+                </div>
                 <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Вход</a>
+                    <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Регистрация</a>
+                </div>
             </div>
         </nav>
     </header>
 
     <main role="main" class="container">
-        {% block content %}{% endblock content %}
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+
     </main>
 
     <!-- Optional JavaScript; choose one of the two! -->
