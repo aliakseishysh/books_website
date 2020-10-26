@@ -6,3 +6,9 @@
 
 # pipenv
 Pipfile.lock
+
+# cashe
+__pycache__
+
+# databeses
+books.db
