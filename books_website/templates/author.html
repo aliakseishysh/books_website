@@ -1,4 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
     <h1>{{ author.name }}</h1>
+    {% for book in author.books %}
+        <article class="article-section">
+            <h4 class="article-info"><a href="{{ url_for('authors.author', author_id=book.author.id) }}">
+                {{ book.author.name }}</a> - <a href={{ url_for('books.book', book_id=book.id) }}>{{ book.name }}</a></h4>
+            <p class="article-description">{{ book.description }}</p>
+            <p class="article-link"> Скачать: <a href="{{ url_for('static', filename='books_files/' + book.book_file) }}">.txt</a></p>
+        </article>
+    {% endfor %}
 {% endblock content %}
