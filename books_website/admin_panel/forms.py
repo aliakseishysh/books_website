@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, IntegerField
 from wtforms.validators import DataRequired
 
 
@@ -14,5 +14,10 @@ class NewBookForm(FlaskForm):
 class NewAuthorForm(FlaskForm):
     name = StringField('Имя автора', validators=[DataRequired()])
     submit = SubmitField('Добавить')
+
+
+class DelBookForm(FlaskForm):
+    book_id = IntegerField('Id книги', validators=[DataRequired()])
+    submit = SubmitField('Удалить')
 
 

@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, abort, flash
 from flask_login import login_required, current_user
 
 from books_website import db
-from books_website.admin_panel.forms import NewBookForm, NewAuthorForm
+from books_website.admin_panel.forms import NewBookForm, NewAuthorForm, DelBookForm
 from books_website.models import Book, Author
 
 admin_panel = Blueprint('admin_panel', __name__)
@@ -49,10 +49,27 @@ def authors_ids():
 
 
 @login_required
+@admin_panel.route('/books/ids')
+def books_ids():
+    if current_user.is_authenticated and current_user.account_type == "admin":
+        books = Book.query.all()
+        return render_template('books_ids.html', title='Ids книг', books=books)
+    else:
+        abort(405)
+
+
+@login_required
 @admin_panel.route('/del/book', methods=['GET', 'POST'])
 def del_book():
     if current_user.is_authenticated and current_user.account_type == "admin":
-        return render_template('del_book.html')
+        form = DelBookForm()
+        if form.validate_on_submit():
+            book_id = form.book_id.data
+            book = Book.query.get(book_id)
+            db.session.delete(book)
+            db.session.commit()
+            return render_template('account.html')
+        return render_template('del_book.html', title='Удалить книгу', form=form)
     else:
         abort(405)
 

@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
     <ul>
-    {% for author in authors %}
-        <li>{{ author.id }} - {{ author.name }}</li>
+    {% for book in books %}
+        <li>{{ book.id }} - {{ book.name }}</li>
     {% endfor %}
     </ul>
 {% endblock content %}

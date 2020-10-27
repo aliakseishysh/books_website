@@ -8,6 +8,11 @@
                 href="{{ url_for('admin_panel.authors_ids') }}" role="button">Перейти</a>
         </div>
         <div class="form-group">
+            <label for="link_get_books">Получить id книг: </label>
+            <a id="link_get_books" class="btn btn-info form-control"
+                href="{{ url_for('admin_panel.books_ids') }}" role="button">Перейти</a>
+        </div>
+        <div class="form-group">
             <label for="link_new_book">Добавить новую книгу в базу данных: </label>
             <a id="link_new_book" class="btn btn-info form-control"
                 href="{{ url_for('admin_panel.new_book') }}" role="button">Перейти</a>
