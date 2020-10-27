@@ -7,8 +7,11 @@
 # pipenv
 Pipfile.lock
 
-# cashe
+# cache
 __pycache__
 
 # databeses
 books.db
+
+# static
+books_website/static/books_files
