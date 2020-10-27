@@ -11,3 +11,8 @@ class NewBookForm(FlaskForm):
     submit = SubmitField('Добавить')
 
 
+class NewAuthorForm(FlaskForm):
+    name = StringField('Имя автора', validators=[DataRequired()])
+    submit = SubmitField('Добавить')
+
+

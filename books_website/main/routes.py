@@ -8,7 +8,7 @@ main = Blueprint('main', __name__)
 @main.route('/')
 @main.route('/home')
 def home():
-    books = Book.query.all()
+    books = Book.query.order_by(Book.id.desc()).all()
     return render_template('home.html', books=books)
 
 
